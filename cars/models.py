@@ -8,3 +8,8 @@ class Car(models.Model):
     factory_year = models.IntegerField(blank=True,null=True) #factoryYear(AnoDefábrica)
     model_year = models.IntegerField(blank=True,null=True)
     value = models.FloatField(blank=True,null=True)
+
+# para resolver a nomeclatura la no banco de dados e tirar o object Car
+
+    def __str__(self):
+        return self.model # ao inves de aparecer object vai aparecer o nome do carro
