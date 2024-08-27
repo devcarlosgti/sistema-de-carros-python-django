@@ -18,7 +18,9 @@ class Car(models.Model):
     #OndeleteModels.PROTECT -> p assegurar o user ñ delete as marcas! pois esta relacionada c carros
     factory_year = models.IntegerField(blank=True,null=True) #factoryYear(AnoDefábrica)
     model_year = models.IntegerField(blank=True,null=True)
+    plate = models.CharField(max_length=10, blank=True, null=True)
     value = models.FloatField(blank=True,null=True)
+    photo = models.ImageField(upload_to='cars/', blank=True, null=True)
 
 # para resolver a nomeclatura la no banco de dados e tirar o object Car
 
