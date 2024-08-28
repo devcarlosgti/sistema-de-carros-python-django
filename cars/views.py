@@ -6,4 +6,8 @@ from django.shortcuts import render
 #     return HttpResponse()
 
 def cars_view(request):
-    return render(request, 'cars.html') #cars.html esta na pasta de templates
+    return render(
+        request, 
+        'cars.html', 
+        {'cars':{'model':'Celta 1.0'}}
+    ) #cars.html esta na pasta de templates
