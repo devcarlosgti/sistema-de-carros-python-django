@@ -15,9 +15,13 @@ def cars_view(request):
     # cars = Car.objects.filter(model='Chevette tubarão') # ele traz com nome especifico
     # cars = Car.objects.filter(model__contains='c') # basta um dos nomes ele ja busca
     # print(request) # ele uso metodo GET p buscar
-    print(request.GET)
-    # print(request.GET.get('search'))
-    cars = Car.objects.all()
+    # print(request.GET)
+    # print(request.GET.get('search')) #
+    cars = Car.objects.all() # traz todos
+    search = request.GET.get('search') # search busca q user faz
+    if search:
+        cars = cars.filter(model__contains=search)
+        # cars = Car.objects.filter(model__contains=search) # filtra o q contem o q user digitar
     return render(
         request, 
         'cars.html', 
