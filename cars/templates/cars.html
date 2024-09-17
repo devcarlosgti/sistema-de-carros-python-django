@@ -11,7 +11,12 @@
         <body>
             <!-- <h1 style="color: aquamarine;">Carros do Carlos</h1>
             <h3>Só carros top!</h3> -->
-            <h3>Carro 1: {{ cars.model }}</h3>
+            <!-- for para percorer a lista -->
+            {% for car in cars %} 
+                <!-- <h3>Carro 1: {{ cars.model }}</h3> -->
+                <h3>{{car.brand}} - {{ car.model }} - {{ car.factory_year}}</h3>
+                <!-- busca no banco -->
+            {% endfor %}
         </body>
     <!-- eu fecho -->
     {% endblock %}
