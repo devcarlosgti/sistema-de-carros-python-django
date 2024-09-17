@@ -17,10 +17,12 @@ def cars_view(request):
     # print(request) # ele uso metodo GET p buscar
     # print(request.GET)
     # print(request.GET.get('search')) #
-    cars = Car.objects.all() # traz todos
+    cars = Car.objects.all().order_by('model') # traz todos
+    # cars = Car.objects.all().order_by('-model') # - inverte a ordem
     search = request.GET.get('search') # search busca q user faz
     if search:
-        cars = cars.filter(model__contains=search)
+        # cars = cars.filter(model__contains=search).order_by('model')
+        cars = cars.filter(model__contains=search) # ñ precisa colocra novamente
         # cars = Car.objects.filter(model__contains=search) # filtra o q contem o q user digitar
     return render(
         request, 
